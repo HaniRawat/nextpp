@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
-import { Shirt, Sparkle } from 'lucide-react'
+import { Shirt, Sparkle, Star } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -16,10 +16,10 @@ const Header = () => {
         </h1>
         </div>
 
-        <div className='flex flex-row '>
+        <div className='flex flex-row hidden md:block '>
           <Badge className='p-2 md:p-3 overflow-hidden rounded-full bg-gradient-to-r from-rose-500 to-rose-400 text-white'>
             <Sparkle className=' animate-pulse'/>
-          <h3>Ai Powered System</h3>
+          <h3>Powered by AI</h3>
           </Badge>
         </div>
         
@@ -27,6 +27,7 @@ const Header = () => {
           <SignedIn>
             <div className='flex flex-row gap-2 md:gap-4 '>
               <Button className='bg-gradient-to-r from-rose-500 to-rose-400 rounded-full'>
+                <Star />
                 <Link href='/saved'>Saved</Link>
               </Button>
             <UserButton />
@@ -35,7 +36,8 @@ const Header = () => {
           </SignedIn>
           
           <SignedOut>
-            <SignInButton />
+            <Link href='/sign-in' >Sign In</Link>
+            
           </SignedOut>
 
         </div>
