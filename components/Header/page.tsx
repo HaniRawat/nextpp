@@ -1,16 +1,17 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { SignedIn, SignedOut } from '@clerk/nextjs'
 import { Shirt, Sparkle } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
 const Header = () => {
-  const isLoggedIn = false
+  
   return (
-    <header className='flex flex-row justify-between items-center p-4 md:p-8 mx-auto flex-1'>
+    <header className='flex flex-row justify-between items-center p-4 md:p-8 mx-auto flex-1 w-full '>
         <div className='flex gap-1 '>
           <Shirt />
-          <h1 className='font-extrabold  font-4xl '>
+          <h1 className='font-extrabold '>
         <Link href = "/"> Drip Check</Link>
         </h1>
         </div>
@@ -23,20 +24,18 @@ const Header = () => {
         </div>
         
         <div className='flex flex-row gap-2 md:gap-4 '>
-          {isLoggedIn ? (
-            <Button>
+          <SignedIn>
+            <Button variant='ghost'>
             <Link href='sign-in'>Sign Out</Link> 
           </Button>
-          ):
-          (
-          <Button>
+          </SignedIn>
+          
+          <SignedOut>
+          <Button variant='ghost'>
             <Link href='sign-in'>Sign In</Link>
           </Button>
-        )}
-          
-          
+          </SignedOut>
 
-          
         </div>
     </header>
   )

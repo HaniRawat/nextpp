@@ -1,9 +1,9 @@
-
+import { SignUp, useUser } from '@clerk/nextjs'
 
 export default function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
+  const { user } = useUser()
+
+  if (!user) return <SignUp />
+
+  return <div>Welcome!</div>
 }
