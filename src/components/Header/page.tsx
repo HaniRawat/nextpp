@@ -30,7 +30,7 @@ const Header = () => {
                 <Star />
                 <Link href='/saved'>Saved</Link>
               </Button>
-            <UserButton />
+            <UserButton  />
             </div>
             
           </SignedIn>
