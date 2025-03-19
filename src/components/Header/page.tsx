@@ -8,7 +8,7 @@ import React from 'react'
 const Header = () => {
   
   return (
-    <header className='flex flex-row justify-between items-center p-4 md:p-8 mx-auto flex-1 w-full '>
+    <header className='flex flex-row justify-between items-center p-4 md:p-8 mx-auto flex-1 w-full bg-gradient-to-r from-emerald-100 via-emerald-50 to-rose-50 '>
         <div className='flex gap-1 '>
           <Shirt />
           <h1 className='font-extrabold '>
