@@ -7,9 +7,9 @@ import { SignedIn,SignedOut } from '@clerk/nextjs'
 const HeroSection = () => {
   return (
     <section className='flex flex-col relative items-center justify-center mx-auto bg-gradient-to-r from-emerald-100 via-emerald-50 to-rose-50 '>
-        <h1 className='font-bold py-6 text-center text-xl md:text-3xl'>Weather Meets Style - AI Picks Your Best Outfit Every Day</h1>
+        <h1 className='font-bold py-6 text-center text-xl md:text-3xl tracking-tight '>Weather Meets Style - AI Picks Your Best Outfit Every Day</h1>
 
-        <h2 className='sm:text-xl px-4 md:px-0 text-center text-gray-600'>Rain or shine, always dress right! AI-powered outfit picks just for you.</h2>
+        <h2 className='sm:text-xl px-4 md:px-0 text-center text-gray-600 font-bold tracking-tight'>Rain or shine, always dress right! AI-powered outfit picks just for you.✨</h2>
 
         <div>
             

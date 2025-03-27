@@ -42,7 +42,7 @@ export default function OutfitRecommender() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 min-h-screen bg-gradient-to-r from-emerald-100 via-emerald-50 to-rose-50 ">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8">AI Outfit Recommender</h1>
 
@@ -52,13 +52,13 @@ export default function OutfitRecommender() {
               placeholder="Describe the style, occasion, or colors you're looking for..."
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              className="flex-1"
+              className="flex-1 rounded-xl shadow-md bg-white/60 backdrop-blur-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-300 placeholder:text-gray-500 text-gray-700 transition-all"
             />
             <Button type="submit" disabled={loading || !prompt.trim()} className="md:w-auto w-full bg-gradient-to-r from-rose-500 to-rose-400 rounded-full cursor-pointer">
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Generating...
+                  Generating🤔...
                 </>
               ) : (
                 <>
@@ -85,7 +85,7 @@ export default function OutfitRecommender() {
           </div>
         ) : (
           <div className="text-center py-12 text-muted-foreground">
-            <p>Enter a prompt to get AI-generated outfit recommendations.</p>
+            <p>Enter a prompt to get AI-generated outfit recommendations✨.</p>
             <p className="mt-2 text-sm">Try something like "Business casual for summer" or "Cozy winter outfits"</p>
           </div>
         )}
