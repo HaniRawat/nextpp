@@ -59,7 +59,7 @@ export default function OutfitRecommender() {
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Generating🤔...
+                  Generating  🤔...
                 </>
               ) : (
                 <>
@@ -100,7 +100,7 @@ function OutfitCard({ outfit }: { outfit: Outfit }) {
     <Card className="overflow-hidden transition-all hover:shadow-md">
       <CardHeader className="p-0">
         <div className="aspect-square relative overflow-hidden">
-          <Image src={outfit.imageUrl || "/placeholder.svg"} alt={outfit.name} className="object-cover w-full h-full" />
+          <Image src={outfit.imageUrl || "/placeholder.svg"} alt={outfit.name} width={100} height={70} className="object-cover w-full h-full" />
         </div>
       </CardHeader>
       <CardContent className="p-4">

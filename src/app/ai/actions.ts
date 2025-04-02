@@ -18,7 +18,7 @@ export async function generateOutfits(prompt: string): Promise<Outfit[]> {
     // Generate outfit recommendations using Gemini
     const { text } = await generateText({
       model: google("gemini-1.5-pro",),
-      prompt: `Generate 6 outfit recommendations based on the following prompt: "${prompt}".
+      prompt: `Generate 9 outfit recommendations based on the following prompt: "${prompt}".
       Return a JSON array where each outfit has:
       - id (a unique string)
       - name (a catchy name for the outfit)
@@ -39,7 +39,7 @@ export async function generateOutfits(prompt: string): Promise<Outfit[]> {
       imageUrl: `/placeholder.svg?height=400&width=400&text=Outfit+${index + 1}`,
     }))
 
-    // In a real application, you would generate actual outfit images
+    // In a real application, we would generate actual outfit images
     // using an image generation AI or fetch from a database
   } catch (error) {
     console.error("Error generating outfits:", error)
