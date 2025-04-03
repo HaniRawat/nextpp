@@ -87,7 +87,7 @@ export default function OutfitRecommender() {
         ) : (
           <div className="text-center py-12 text-muted-foreground">
             <p>Enter a prompt to get AI-generated outfit recommendations✨.</p>
-            <p className="mt-2 text-sm">Try something like "Business casual for summer" or "Cozy winter outfits"</p>
+            <p className="mt-2 text-sm">{'Try something like "Business casual for summer" or "Cozy winter outfits"'}</p>
           </div>
         )}
       </div>
