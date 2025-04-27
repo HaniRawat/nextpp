@@ -27,7 +27,7 @@ export async function generateOutfits(prompt: string): Promise<Outfit[]> {
       - price (a string representing the price of the outfit, e.g., "$49.99")
       - imageUrl (a valid, high-quality product image URL **directly from the actual Amazon product page**) (must be accessible and end in .jpg or .png if possible)
       
-      Dont generate any other text, just the JSON array and just use the data from the amazon product page.
+     
       Ensure that the imageUrl field contains the **correct URL of the product image on Amazon**, not a placeholder or broken link.
       Format the response as a valid JSON array only, with no additional text.`,
     })
