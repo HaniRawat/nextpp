@@ -1,6 +1,6 @@
 "use client";
 import { Button } from '../../components/ui/button'
-
+import { Loader2, Sparkles } from "lucide-react"
 import { useState } from "react";
 import { fetchOutfitsFromPrompt } from "@/app/actions/fetchOutfits";
 import Image from "next/image";
@@ -18,9 +18,9 @@ export default function OutfitSearchPage() {
   }
 
   return (
-    <div className="p-4 max-w-3xl mx-auto">
+    <div className="p-4 mx-auto">
       <input
-        className="border p-2 w-full mb-4"
+        className="border p-3 mb-4 rounded-xl w-full"
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
         placeholder="What kind of outfits are you looking for?"
@@ -29,7 +29,17 @@ export default function OutfitSearchPage() {
         Search
       </Button>
 
-      {loading && <p>Loading outfits...</p>}
+      {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Generating  🤔...
+                </>
+              ) : (
+                <>
+                  <Sparkles className="mr-2 h-4 w-4 animate-pulse" />
+                  Generate Outfits
+                </>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {outfits.map((outfit) => (
