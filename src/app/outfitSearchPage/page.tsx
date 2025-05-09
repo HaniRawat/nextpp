@@ -15,6 +15,7 @@ export default function OutfitSearchPage() {
     const data = await fetchOutfitsFromPrompt(prompt);
     setOutfits(data);
     setLoading(false);
+    console.log(outfits);
   }
 
   return (
