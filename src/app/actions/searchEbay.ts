@@ -8,10 +8,10 @@ export async function searchEbayOutfits(query: string, limit = 10, offset = 0) {
     throw new Error("eBay credentials are not set in environment variables.");
   }
 
-  // Step 1: Get OAuth token
   const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
 
-  const tokenRes = await fetch("https://api.ebay.com/identity/v1/oauth2/token", {
+  // ✅ Use sandbox token URL
+  const tokenRes = await fetch("https://api.sandbox.ebay.com/identity/v1/oauth2/token", {
     method: "POST",
     headers: {
       Authorization: `Basic ${basicAuth}`,
@@ -25,20 +25,20 @@ export async function searchEbayOutfits(query: string, limit = 10, offset = 0) {
 
   if (!tokenRes.ok) {
     const errorDetails = await tokenRes.text();
-    console.error("OAuth token fetch failed:", errorDetails);
-    throw new Error("Unable to obtain eBay access token.");
+    console.error("❌ eBay Auth Error Response:", errorDetails);
+    throw new Error("Failed to authenticate with eBay");
   }
 
   const { access_token } = await tokenRes.json();
 
-  // Step 2: Search
   const searchParams = new URLSearchParams({
     q: query,
     limit: limit.toString(),
     offset: offset.toString(),
   });
 
-  const endpoint = `https://api.ebay.com/buy/browse/v1/item_summary/search?${searchParams.toString()}`;
+  // ✅ Use sandbox browse endpoint
+  const endpoint = `https://api.sandbox.ebay.com/buy/browse/v1/item_summary/search?${searchParams.toString()}`;
 
   const searchRes = await fetch(endpoint, {
     headers: {
@@ -49,7 +49,7 @@ export async function searchEbayOutfits(query: string, limit = 10, offset = 0) {
 
   if (!searchRes.ok) {
     const errorDetails = await searchRes.text();
-    console.error("Search failed:", errorDetails);
+    console.error("❌ Search failed:", errorDetails);
     console.error("Search URL:", endpoint);
     throw new Error("Failed to search eBay products");
   }
@@ -66,11 +66,4 @@ export async function searchEbayOutfits(query: string, limit = 10, offset = 0) {
   }));
 
   return outfits;
-}
-
-// Wrapper for keyword array
-export async function searchEbayProducts(keywords: string[] | string) {
-  const query = Array.isArray(keywords) ? keywords.join(" ") : keywords;
-  if (!query.trim()) throw new Error("Empty query");
-  return await searchEbayOutfits(query);
 }
